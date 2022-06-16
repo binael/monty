@@ -20,7 +20,7 @@ int get_token(char *buff)
 	token = strtok(NULL, DELIMITER);
 
 	if (token == NULL)
-		dict.tok[1] = NULL;
+		dict.tok[1] = "a";
 	else
 		dict.tok[1] = token;
 
@@ -35,13 +35,11 @@ int get_token(char *buff)
  */
 void exec_opcode(stack_t **stack)
 {
-	unsigned int a = dict.line_number;
-
 	instruction_t codes[] = {
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
-		{"NULL, NULL}}
+		{NULL, NULL}}
 		/**
 		 * {"pop", pop},
 		{"swap", swap},
@@ -60,6 +58,7 @@ void exec_opcode(stack_t **stack)
 		{NULL, NULL}};
 		*/
 	int i;
+	unsigned int a = dict.line_number;
 
 	for (i = 0;codes[i].opcode != NULL; i++)
 	{

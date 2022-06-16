@@ -17,7 +17,7 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	value = atoi(dic.tok[1]);
+	value = atoi(dict.tok[1]);
 
 	if (dict.size == -1)
 	{
@@ -25,7 +25,7 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		dict.tail = add_dnodeint_end(stack, value);
+		dict.tail = add_nodeint_end(stack, value);
 	}
 }
 
@@ -45,7 +45,7 @@ void pall(stack_t **stack, unsigned int line_number)
 		return;
 	}
 
-	print_dlistint(dict.head);
+	print_dlist(dict.head);
 }
 
 /**
@@ -57,7 +57,7 @@ void pall(stack_t **stack, unsigned int line_number)
  */
 void pint(stack_t **stack, unsigned int line_number)
 {
-	if (!stack || |(*stack))
+	if (!stack || !(*stack))
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty", line_number);
 		exit(EXIT_FAILURE);

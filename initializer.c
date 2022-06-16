@@ -18,7 +18,7 @@ void initialize(stack_t **stack)
 
 	dict.tok = malloc(sizeof(char *) * 2);
 
-	if (dic.tok == NULL)
+	if (dict.tok == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);

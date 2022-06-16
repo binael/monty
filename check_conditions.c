@@ -6,7 +6,7 @@
  *
  * Return: 0 - (success), 1 - (failure)
  */
-int isFile(char *file_ptr)
+int isFile(FILE *file_ptr)
 {
 	if (file_ptr == NULL)
 		return (1);

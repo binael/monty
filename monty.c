@@ -27,7 +27,7 @@ int main(int argc, __attribute__((unused)) char **argv)
 	{
 		while (getline(&buff, &size, file_ptr) != -1)
 		{
-			ext_struct.line_number++;
+			dict.line_number++;
 
 			if (get_token(buff) == 1)
 				continue;

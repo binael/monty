@@ -50,8 +50,8 @@ typedef struct instruction_s
  */
 typedef struct dictionary
 {
-	stack_t *head;
-	stack_t tail;
+	struct stack_s *head;
+	struct stack_s *tail;
 	char **tok;
 	unsigned int line_number;
 	int size;

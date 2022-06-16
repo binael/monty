@@ -52,7 +52,7 @@ stack_t *add_dnodeint(stack_t **head, const int n)
 }
 
 /**
- * add_dnodeint_end - adds a node to the end of a double list
+ * add_nodeint_end - adds a node to the end of a double list
  * @head: list head
  * @n: integer value
  *
@@ -66,8 +66,8 @@ stack_t *add_nodeint_end(stack_t **head, const int n)
 
 	if (new == NULL)
 	{
-		 fprintf(stderr, "Error: malloc failed\n");
-		 exit(EXIT_FAILURE);
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
 	}
 	new->n = n;
 	new->next = NULL;
@@ -124,7 +124,7 @@ stack_t *delete_dnodeint_end(stack_t **head)
 
 /**
  * dlist_len - the length of the linked list
- * head: the stack
+ * @head: the stack
  *
  * Return: integer length of stack
  */

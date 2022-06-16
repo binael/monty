@@ -34,7 +34,7 @@ void exec_opcode(stack_t **stack, char *tok, unsigned int ln)
 		*/
 	int i;
 
-	for (i = 0;codes[i].opcode != NULL; i++)
+	for (i = 0; codes[i].opcode != NULL; i++)
 	{
 		if (!strcmp(codes[i].opcode, tok))
 		{

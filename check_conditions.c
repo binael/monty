@@ -20,7 +20,7 @@ int isFile(char *file_ptr)
  *
  * Return: 0 - (success), 1 - (failure)
  */
-int isInteger(char *input)
+int isInteger(void)
 {
 	char *s = dict.tok[1];
 

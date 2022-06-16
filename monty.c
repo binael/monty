@@ -38,7 +38,7 @@ int main(int argc, __attribute__((unused)) char **argv)
 	}
 	else
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", arg[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 

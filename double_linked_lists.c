@@ -12,7 +12,7 @@ void print_dlist(const stack_t *h)
 	{
 		while (h)
 		{
-			printf("%u\n", h->n);
+			printf("%d\n", h->n);
 			h = h->next;
 		}
 	}
@@ -93,20 +93,19 @@ stack_t *add_nodeint_end(stack_t **head, const int n)
 }
 
 /**
- * delete_dnodeint_at_index - deletes a node at a given index value
+ * delete_dnodeint_end - deletes a node at a given index value
  * @head: head of doubly linked list
- * @index: unsigned integer index
  *
  * Return: address of the last node
  */
-stack_t *delete_dnodeint_at_index(stack_t **head, unsigned int index)
+stack_t *delete_dnodeint_end(stack_t **head)
 {
 	stack_t *dlast, *dlist = *head;
 
 	if (!(*head))
 		return (NULL);
 
-	if (!index)
+	if (!dict.size)
 	{
 		dlist->next = NULL;
 		dlist->prev = NULL;

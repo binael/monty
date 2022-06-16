@@ -14,7 +14,7 @@ void initialize(stack_t **stack)
 	dict.head = NULL;
 	dict.tail = NULL;
 	dict.line_number = 0;
-	dict.size = 0;
+	dict.size = -1;
 
 	dict.tok = malloc(sizeof(char *) * 2);
 

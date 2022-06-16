@@ -43,7 +43,6 @@ void exec_opcode(stack_t **stack)
 		{"nop", nop},
 		{"sub", sub},
 		{"mul", mul},
-		{"#", comment},
 		{"mod", mod},
 		{"div", div},
 		{"rot1", rot1},
@@ -64,7 +63,7 @@ void exec_opcode(stack_t **stack)
 		}
 	}
 
-	fprintf(stderr, "%d: unknown instruction %s\n", dict.line_number, dict.tok[0]);
+	fprintf(stderr, "L%u: unknown instruction %s\n", dict.line_number, dict.tok[0]);
 	deallocate(stack);
 	exit(EXIT_FAILURE);
 }

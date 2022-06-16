@@ -52,10 +52,11 @@ typedef struct dictionary
 	stack_t *head;
 	stack_t tail;
 	char **tok;
-	int line_number;
+	unsigned int line_number;
 	int size;
 } dictionary_t
 
 extern dictionary_t dict;
+
 
 #endif

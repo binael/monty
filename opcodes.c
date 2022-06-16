@@ -47,7 +47,7 @@ void pall(stack_t **stack, unsigned int line_number)
 		return;
 	}
 
-	print_dlist(dict.head);
+	print_dlist(*stack);
 }
 
 /**
@@ -59,7 +59,7 @@ void pall(stack_t **stack, unsigned int line_number)
  */
 void pint(stack_t **stack, unsigned int line_number)
 {
-	stack_t dlist = *stack;
+	stack_t *dlist = *stack;
 
 	if (!stack || !(*stack))
 	{
@@ -69,7 +69,7 @@ void pint(stack_t **stack, unsigned int line_number)
 	}
 	
 	while (dlist->next)
-		dlist = dlist-next;
+		dlist = dlist->next;
 
 	printf("%d\n", dlist->n);
 }
@@ -105,7 +105,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	int temp;
 	stack_t *dlist;
 
-	if (!stack || !(*stack) || !(*(stack->next)))
+	if (!stack || !(*stack) || !((*stack)->next))
 	{
 		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		deallocate(stack);

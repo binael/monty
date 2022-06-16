@@ -30,7 +30,7 @@ int isInteger(char *str_value)
 	while (*str_value)
 	{
 		if (*str_value >= '0' && *str_value <= '9')
-			str_value++
+			str_value++;
 		else
 			return (1);
 	}

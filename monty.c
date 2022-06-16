@@ -12,7 +12,7 @@ int main(int argc, __attribute__((unused)) char **argv)
 	FILE *file_ptr;
 	char buff[128], *token = NULL;
 	stack_t *stack;
-	unisigned int line_number = 0;
+	unsigned int line_number = 0;
 
 	stack = NULL;
 
@@ -23,7 +23,7 @@ int main(int argc, __attribute__((unused)) char **argv)
 	}
 	file_ptr = fopen(argv[1], "r");
 
-	if (isFile(file_ptr))
+	if (file_ptr)
 	{
 		while (fgets(buff, sizeof(buff), file_ptr) != NULL)
 		{

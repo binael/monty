@@ -131,7 +131,7 @@ stack_t *delete_dnodeint_end(stack_t **head)
 int dlist_len(stack_t **head)
 {
 	int len = -1;
-	stack_t dlist = *head;
+	stack_t *dlist = *head;
 
 	if (dlist)
 	{
@@ -140,3 +140,4 @@ int dlist_len(stack_t **head)
 	}
 
 	return (len);
+}

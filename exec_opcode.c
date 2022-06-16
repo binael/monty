@@ -8,6 +8,8 @@
  */
 int get_token(char *buff)
 {
+	char *token;
+
 	token = strtok(buff, DELIMITER);
 
 	if (token == NULL)
@@ -16,7 +18,7 @@ int get_token(char *buff)
 	}
 	dict.tok[0] = token;
 	token = strtok(NULL, DELIMITER);
-	
+
 	if (token == NULL)
 		dict.tok[1] = NULL;
 	else
@@ -33,11 +35,15 @@ int get_token(char *buff)
  */
 void exec_opcode(stack_t **stack)
 {
+	unsigned int a = dict.line_number;
+
 	instruction_t codes[] = {
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
-		{"pop", pop},
+		{"NULL, NULL}}
+		/**
+		 * {"pop", pop},
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
@@ -52,6 +58,7 @@ void exec_opcode(stack_t **stack)
 		{"queue", queue},
 		{"stack", stack1},
 		{NULL, NULL}};
+		*/
 	int i;
 
 	for (i = 0;codes[i].opcode != NULL; i++)
@@ -63,7 +70,7 @@ void exec_opcode(stack_t **stack)
 		}
 	}
 
-	fprintf(stderr, "L%u: unknown instruction %s\n", dict.line_number, dict.tok[0]);
+	fprintf(stderr, "L%u: unknown instruction %s\n", a, dict.tok[0]);
 	deallocate(stack);
 	exit(EXIT_FAILURE);
 }

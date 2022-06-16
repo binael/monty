@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * isFile - checks if a file can be read

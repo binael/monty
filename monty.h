@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #define DELIMITER " \t\n\r"
 
@@ -54,9 +55,22 @@ typedef struct dictionary
 	char **tok;
 	unsigned int line_number;
 	int size;
-} dictionary_t
+} dictionary_t;
 
 extern dictionary_t dict;
-
+int isFile(char *file_ptr);
+int isInteger(void);
+int isComment(void);
+void deallocate(stack_t **stack);
+void print_dlist(const stack_t *h);
+stack_t *add_dnodeint(stack_t **head, const int n);
+stack_t *add_nodeint_end(stack_t **head, const int n);
+stack_t *delete_dnodeint_end(stack_t **head);
+int get_token(char *buff);
+void exec_opcode(stack_t **stack);
+void initialize(stack_t **stack);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 
 #endif

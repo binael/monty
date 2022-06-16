@@ -1,39 +1,14 @@
 #include "monty.h"
 
 /**
- * get_token - gets the first and second line element
- * @buff: the line
- *
- * Return: 0 (success), 1 (failure)
- */
-int get_token(char *buff)
-{
-	char *token;
-
-	token = strtok(buff, DELIMITER);
-
-	if (token == NULL)
-	{
-		return (1);
-	}
-	dict.tok[0] = token;
-	token = strtok(NULL, DELIMITER);
-
-	if (token == NULL)
-		dict.tok[1] = "a";
-	else
-		dict.tok[1] = token;
-
-	return (0);
-}
-
-/**
  * exec_opcode - executes or finds the opcode
  * @stack: the stack
+ * @tok: the string bearing the opcode
+ * @ln: unsigned integer line number
  *
  * Return: void
  */
-void exec_opcode(stack_t **stack)
+void exec_opcode(stack_t **stack, char *tok, unsigned int ln)
 {
 	instruction_t codes[] = {
 		{"push", push},
@@ -58,18 +33,17 @@ void exec_opcode(stack_t **stack)
 		{NULL, NULL}};
 		*/
 	int i;
-	unsigned int a = dict.line_number;
 
 	for (i = 0;codes[i].opcode != NULL; i++)
 	{
-		if (!strcmp(codes[i].opcode, dict.tok[0]))
+		if (!strcmp(codes[i].opcode, tok))
 		{
-			(codes[i].f)(stack, dict.line_number);
+			(codes[i].f)(stack, ln);
 			return;
 		}
 	}
 
-	fprintf(stderr, "L%u: unknown instruction %s\n", a, dict.tok[0]);
+	fprintf(stderr, "L%u: unknown instruction %s\n", ln, tok);
 	deallocate(stack);
 	exit(EXIT_FAILURE);
 }

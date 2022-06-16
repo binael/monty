@@ -16,23 +16,21 @@ int isFile(FILE *file_ptr)
 
 /**
  * isInteger - checks if a string contains only digits
- * @input: string to validate
+ * @str_value: string to validate
  *
  * Return: 0 - (success), 1 - (failure)
  */
-int isInteger(void)
+int isInteger(char *str_value)
 {
-	char *s = dict.tok[1];
-
-	if (!s)
+	if (!str_value)
 		return (1);
-	if (*s == '-')
-		s++;
+	if (*str_value == '-')
+		str_value++;
 
-	while (*s)
+	while (*str_value)
 	{
-		if (*s >= '0' && *s <= '9')
-			s++;
+		if (*str_value >= '0' && *str_value <= '9')
+			str_value++
 		else
 			return (1);
 	}
@@ -42,12 +40,14 @@ int isInteger(void)
 
 /**
  * isComment - checks if a line character starts with "#"
+ * @tok: string to check for #
  *
  * Return: 0 - (Success), 1 - (Failure)
  */
-int isComment(void)
+int isComment(char *tok)
 {
-	if (dict.tok[0][0] == '#')
+	if (tok && *tok == '#')
 		return (0);
+
 	return (1);
 }

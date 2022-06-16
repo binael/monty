@@ -10,11 +10,11 @@
 int main(int argc, __attribute__((unused)) char **argv)
 {
 	FILE *file_ptr;
-	char *buff;
-	size_t size = 0;
+	char buff[128], *token = NULL;
 	stack_t *stack;
+	unisigned int line_number = 0;
 
-	initialize(&stack);
+	stack = NULL;
 
 	if (argc != 2)
 	{
@@ -25,15 +25,13 @@ int main(int argc, __attribute__((unused)) char **argv)
 
 	if (isFile(file_ptr))
 	{
-		while (getline(&buff, &size, file_ptr) != -1)
+		while (fgets(buff, sizeof(buff), file_ptr) != NULL)
 		{
-			dict.line_number++;
-
-			if (get_token(buff) == 1)
+			line_number++;
+			token = strtok(buff, DELIMITER);
+			if (!isComment(token))
 				continue;
-			if (!isComment())
-				continue;
-			exec_opcode(&stack);
+			exec_opcode(&stack, token, line_number);
 		}
 	}
 	else

@@ -47,7 +47,6 @@ stack_t *add_dnodeint(stack_t **head, const int n)
 	}
 
 	*head = new;
-	dict.size++;
 
 	return (new);
 }
@@ -87,7 +86,6 @@ stack_t *add_nodeint_end(stack_t **head, const int n)
 
 	new->prev = dlist;
 	dlist->next = new;
-	dict.size++;
 
 	return (new);
 }
@@ -105,26 +103,40 @@ stack_t *delete_dnodeint_end(stack_t **head)
 	if (!(*head))
 		return (NULL);
 
-	if (!dict.size)
-	{
-		dlist->next = NULL;
-		dlist->prev = NULL;
-		dict.size--;
+	while (dlist->next)
+		dlist = dlist->next;
 
-		free(dlist);
-		return (NULL);
+	if (dlist->prev)
+	{
+		dlast = dlist->prev;
+		dlast->next = NULL;
+		dlist->prev = NULL;
 	}
 	else
 	{
-		while (dlist->next)
-			dlist = dlist->next;
+		dlast = NULL;
+		head = dlast;
 	}
-
-	dlast = dlist->prev;
-	dlast->next = NULL;
-	dlist->prev = NULL;
-	dict.size--;
 
 	free(dlist);
 	return (dlast);
 }
+
+/**
+ * dlist_len - the length of the linked list
+ * head: the stack
+ *
+ * Return: integer length of stack
+ */
+int dlist_len(stack_t **head)
+{
+	int len = -1;
+	stack_t dlist = *head;
+
+	if (dlist)
+	{
+		dlist = dlist->next;
+		len++;
+	}
+
+	return (len);

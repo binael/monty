@@ -115,7 +115,7 @@ stack_t *delete_dnodeint_end(stack_t **head)
 	else
 	{
 		dlast = NULL;
-		head = dlast;
+		*head = dlast;
 	}
 
 	free(dlist);

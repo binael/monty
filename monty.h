@@ -58,7 +58,8 @@ typedef struct dictionary
 } dictionary_t;
 
 extern dictionary_t dict;
-int isFile(char *file_ptr);
+
+int isFile(FILE *file_ptr);
 int isInteger(void);
 int isComment(void);
 void deallocate(stack_t **stack);

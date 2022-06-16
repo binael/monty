@@ -21,7 +21,7 @@ int main(int argc, __attribute__((unused)) char **argv)
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	file = fopen(argv[1], "r");
+	file_ptr = fopen(argv[1], "r");
 
 	if (isFile(file_ptr))
 	{

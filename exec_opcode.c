@@ -39,7 +39,7 @@ void exec_opcode(stack_t **stack)
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
-		{NULL, NULL}}
+		{NULL, NULL}};
 		/**
 		 * {"pop", pop},
 		{"swap", swap},

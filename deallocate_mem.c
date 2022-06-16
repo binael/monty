@@ -16,7 +16,7 @@ void deallocate(stack_t **stack)
 		(*stack) = (*stack)->next;
 		free(temp);
 	}
-	
+
 	if (dict.head)
 		free(dict.head);
 	if (dict.tail)

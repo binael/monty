@@ -7,7 +7,6 @@
  *
  * Return: 0 (success) 1 - (failure)
  */
-
 int main(int argc, __attribute__((unused)) char **argv)
 {
 	FILE *file_ptr;
@@ -22,7 +21,6 @@ int main(int argc, __attribute__((unused)) char **argv)
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-
 	file = fopen(argv[1], "r");
 
 	if (isFile(file_ptr))
@@ -32,6 +30,8 @@ int main(int argc, __attribute__((unused)) char **argv)
 			ext_struct.line_number++;
 
 			if (get_token(buff) == 1)
+				continue;
+			if (!isComment())
 				continue;
 			exec_opcode(&stack);
 		}
@@ -44,6 +44,5 @@ int main(int argc, __attribute__((unused)) char **argv)
 
 	fclose(file_ptr);
 	deallocate(&stack);
-
 	return (0);
 }

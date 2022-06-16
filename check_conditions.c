@@ -39,3 +39,15 @@ int isInteger(char *input)
 
 	return (0);
 }
+
+/**
+ * isComment - checks if a line character starts with "#"
+ *
+ * Return: 0 - (Success), 1 - (Failure)
+ */
+int isComment(void)
+{
+	if (dict.tok[0][0] == '#')
+		return (0);
+	return (1);
+}

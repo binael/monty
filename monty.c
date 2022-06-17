@@ -29,7 +29,7 @@ int main(int argc, __attribute__((unused)) char **argv)
 		{
 			line_number++;
 			token = strtok(buff, DELIMITER);
-			if (!isComment(token))
+			if (!isComment(token) || !token)
 				continue;
 			exec_opcode(&stack, token, line_number);
 		}

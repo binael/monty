@@ -9,7 +9,7 @@
  */
 void add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *second, *first;
+	stack_t *dlist = *stack;
 	int sum;
 
 	if (!stack || !(*stack) || !((*stack)->next))
@@ -19,11 +19,16 @@ void add(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	second = delete_dnodeint_end(stack);
-	first = delete_dnodeint_end(stack);
-	sum = first->n + second->n;
-	push(stack, sum);
-	free(first);
-	free(second);
+	while (dlist->next->next)
+		dlist = dlist->next;
+	sum = dlist->n + dlist->next->n;
+	pop(stack, line_number);
+	pop(stack, line_number);
+
+	if (!stack || !(*stack))
+		add_dnodeint(stack, sum);
+	else
+		add_nodeint_end(stack, sum);
+	free(dlist);
 }
 

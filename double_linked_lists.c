@@ -118,7 +118,7 @@ stack_t *delete_dnodeint_end(stack_t **head)
 		dlist->prev = NULL;
 	}
 
-	return (dlast);
+	return (dlist);
 }
 
 /**

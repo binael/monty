@@ -21,7 +21,7 @@ void exec_opcode(stack_t **stack, char *tok, unsigned int ln)
 		{"sub", sub},
 		{"mul", mul},
 		{"mod", mod},
-		{"div", div},
+		{"div", divide},
 		{NULL, NULL}};
 		/**
 		 * {"rot1", rot1},

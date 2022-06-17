@@ -97,13 +97,13 @@ void mul(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * div - adds the top two nodes of stack
+ * divide - adds the top two nodes of stack
  * @stack: stack
  * @line_number: unsigned int line number
  *
  * Return: void
  */
-void div(stack_t **stack, unsigned int line_number)
+void divide(stack_t **stack, unsigned int line_number)
 {
 	stack_t *dlist = *stack;
 	int result;
@@ -161,8 +161,8 @@ void mod(stack_t **stack, unsigned int line_number)
 	if (dlist->next->n == 0)
 	{
 		deallocate(stack);
-		pfrintf(stderr, "L%u: L<line_number>: division by zero\n", line_number);
-		exit(EXI_FAILURE);
+		fprintf(stderr, "L%u: L<line_number>: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 	result = dlist->n % dlist->next->n;
 	pop(stack, line_number);

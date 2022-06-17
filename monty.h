@@ -38,6 +38,8 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern instruction_t codes[];
+
 int isFile(FILE *file_ptr);
 int isInteger(char *str_value);
 int isComment(char *tok);

@@ -18,13 +18,13 @@ void exec_opcode(stack_t **stack, char *tok, unsigned int ln)
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
-		{NULL, NULL}};
-		/**
-		 * {"sub", sub},
+		{"sub", sub},
 		{"mul", mul},
 		{"mod", mod},
 		{"div", div},
-		{"rot1", rot1},
+		{NULL, NULL}};
+		/**
+		 * {"rot1", rot1},
 		{"pchar", pchar},
 		{"pstr", pstr},
 		{"rotr", rotr},

@@ -41,19 +41,28 @@ typedef struct instruction_s
 int isFile(FILE *file_ptr);
 int isInteger(char *str_value);
 int isComment(char *tok);
+
 void deallocate(stack_t **stack);
 void print_dlist(const stack_t *h);
 int dlist_len(stack_t **head);
 stack_t *add_dnodeint(stack_t **head, const int n);
 stack_t *add_nodeint_end(stack_t **head, const int n);
 stack_t *delete_dnodeint_end(stack_t **head);
+
 void exec_opcode(stack_t **stack, char *tok, unsigned int ln);
+
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
+
 void add(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
+void div(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
+
 void nop(stack_t **stack, unsigned int line_number);
 
 #endif

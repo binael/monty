@@ -98,7 +98,7 @@ stack_t *add_nodeint_end(stack_t **head, const int n)
  */
 stack_t *delete_dnodeint_end(stack_t **head)
 {
-	stack_t *dlast, *dlist = *head;
+	stack_t *dlist = *head;
 
 	if (!(*head))
 		return (NULL);
@@ -108,17 +108,16 @@ stack_t *delete_dnodeint_end(stack_t **head)
 
 	if (dlist->prev)
 	{
-		dlast = dlist->prev;
-		dlast->next = NULL;
+		dlist->prev->next = NULL;
 		dlist->prev = NULL;
 	}
 	else
 	{
-		dlast = NULL;
-		*head = dlast;
+		*head = NULL;
+		dlist->next = NULL;
+		dlist->prev = NULL;
 	}
 
-	free(dlist);
 	return (dlast);
 }
 

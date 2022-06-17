@@ -14,13 +14,13 @@ void exec_opcode(stack_t **stack, char *tok, unsigned int ln)
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
-		{NULL, NULL}};
-		/**
-		 * {"pop", pop},
+		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
-		{"sub", sub},
+		{NULL, NULL}};
+		/**
+		 * {"sub", sub},
 		{"mul", mul},
 		{"mod", mod},
 		{"div", div},

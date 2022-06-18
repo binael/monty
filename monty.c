@@ -10,7 +10,7 @@
 int main(int argc, __attribute__((unused)) char **argv)
 {
 	FILE *file_ptr;
-	char buff[128], *token = NULL;
+	char buff[1028], *token = NULL;
 	stack_t *stack;
 	unsigned int line_number = 0;
 
